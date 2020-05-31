@@ -1,0 +1,233 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MstUser.master.cs" Inherits="OceaniaVoyagers.user.MstUser" %>
+
+<!DOCTYPE html>
+
+<html class="load-full-screen" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8" />
+    <link type="image/x-icon" rel="shortcut icon" href="favicon.png" />
+    <title>Oceania Voyagers</title>
+    <link href="assets/css/gridDesign.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Aclonica" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet"/>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link href="assets/css/fontCss.css" rel="stylesheet" />
+    <link href="assets/libs/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="assets/libs/animate/animate.min.css" rel="stylesheet" />
+    <link href="assets/libs/owl.carousel/owl.carousel.min.css" rel="stylesheet" />
+    <link href="assets/libs/owl.carousel/owl-carousel-theme.min.css" rel="stylesheet" />
+    <link href="assets/libs/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="assets/switch-style/switch-style.css" rel="stylesheet" type="text/css" />
+    <link href="#" data-style="styles" rel="stylesheet" type="text/css" />
+    <script src="assets/js/sweetalert.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="load-full-screen">
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <!-- Start Loader -->
+    <div class="section-loader">
+        <div class="loader">
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+    <!-- End Loader -->
+
+    <!-- Start Site Wrapper -->
+    <div class="site-wrapper">
+        <!-- Start Navbar Section -->
+        <header>
+            <!-- Start Top Menu -->
+            <div class="transparent-menu-top">
+                <div class="container">
+                    <div class="navbar-contact">
+                        <div class="row">
+                            <div class="col-md-7 col-sm-7">
+                                <a href="#" class="transition-effect"><span><i class="fa fa-phone"></i></span>
+                                    <asp:Label runat="server" ID="lblPhone1" Text=""></asp:Label>
+                                </a>
+                                <a href="#" class="transition-effect"><i class="fa fa-envelope-o"></i>
+                                    <asp:HyperLink runat="server" ID="linkEmailId" Text=""></asp:HyperLink>
+                                </a>
+                            </div>
+                            <div class="col-md-5 col-sm-5 search-box">
+                                <div class="user-logged">
+                                    <a href="Registration.aspx" class="transition-effect" runat="server" id="divSignIn">
+                                        <i class="fa fa-user"></i>
+                                        <asp:Label runat="server" ID="lblSignIn" Text="Sign Up" style="color:#fff"></asp:Label>
+                                    </a>
+                                    <a href="Login.aspx" class="transition-effect" runat="server" id="divLogIn">
+                                        <i class="fa fa-sign-in"></i>
+                                        <asp:Label runat="server" ID="lblLogIn" Text="Log In" style="color:#fff"></asp:Label>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Top Menu -->
+            <!-- Start Menu container -->
+            <div class="transparent-menu">
+                <div class="container nav-container">
+                    <!-- Start Header -->
+                    <div class="navbar-wrapper">
+                        <div class="navbar navbar-default navbar-expand-lg navbar-light" role="navigation">
+                            <a class="navbar-brand logo" href="HomePage.aspx">
+                                <img src="assets/images/logo.png" alt="Oceania Voyagers" />
+                                Oceania Voyagers</a>
+                            <!-- Start Responsive Menu Button -->
+                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                                <i class="fa fa-navicon"></i>
+                            </button>
+                            <!-- End Responsive Menu Button -->
+                            <!-- Start Menu -->
+                            <div class="navbar-collapse collapse">
+                                <ul class="navbar-nav navbar-right ml-auto">
+                                    
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="HomePage.aspx">
+                                            <i class="fa fa-home"></i> <span>Home</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="TourGrid.aspx">
+                                            <i class="fa fa-paper-plane-o"></i> <span>Tour Package</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ActivityGrid.aspx">
+                                            <i class="fa fa-bicycle">
+                                                </i> <span>Activity</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="ContactUs.aspx">
+                                           <i class="fa fa-phone">
+                                                 </i> <span>Contact Us</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="CustomPackage.aspx">
+                                           <i class="fa fa-envelope">
+                                                 </i> <span>Custom Package</span></a></li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="AboutUs.aspx">
+                                            <i class="fa fa-info-circle">
+                                                 </i> <span>About Us</span></a></li>
+                                    <li class="dropdown nav-item " runat="server" id="manuUser" visible="false">
+                                        <a class="dropdown-toggle nav-link" style="text-transform :uppercase" href="#" data-toggle="dropdown">
+                                            <i class="fa fa-user"></i> <asp:Label runat="server" ID="lblUserName" Text="Name" ></asp:Label>
+                                        </a>
+                                        <ul class="dropdown-menu" style="background-color:#4389f2;color:#000e2b;">
+                                            <li class="nav-item"><a class="nav-link" href="UserProfile.aspx">My Profile</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="UserBookingDetails.aspx"> Enquiry Details</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="User_ChangePassword.aspx"> Change Password</a></li>
+                                            <li class="nav-item"><a class="nav-link" href="Logout.aspx"> Sign Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- End Menu -->
+                        </div>
+                    </div>
+                    <!-- End Header -->
+                </div>
+            </div>
+            <!-- End Menu container -->
+        </header>
+
+        <form id="form1" runat="server">
+            <asp:ScriptManager runat="server"></asp:ScriptManager>
+            <div>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </form>
+    </div>
+    <!-- Start Footer Section -->
+    <section class="section-wrapper pb-0" style="background-color:#4389f2">
+        <footer class="main-footer" >
+            <div class="container">
+                <div class="row">
+                    <!-- Start Footer widget -->
+                            <div class="col-lg-8 col-md-12 col-sm-8" style="font-family:'Aclonica', sans-serif;">
+                                <div class="about-box">
+                                    <h4 style="color:#000e2b">
+                                        <i class="fa fa-info-circle" style="color:#000e2b">
+                                                </i> <span>About Us</span> </h4>
+                                    <p style="color:#000e2b;text-align:justify;" runat="server" id="lblDescriptionFooter" >
+                                    </p>
+                                    <!-- Start Footer Social link -->
+                                    <div class="social-media">
+                                        <ul>
+                                            <li runat="server" id="liFacebook"><asp:HyperLink runat="server" ID="hyperFacebook" Target="new"><i class="fa fa-facebook"></i></asp:HyperLink></li>
+                                            <li runat="server" id="liTwitter"><asp:HyperLink runat="server" ID="hyperTwitter" Target="new"><i class="fa fa-twitter"></i></asp:HyperLink></li>
+                                            <li runat="server" id="liInsta"><asp:HyperLink runat="server" ID="hyperInsta" Target="new"><i class="fa fa-instagram"></i></asp:HyperLink></li>
+                                            <li runat="server" id="liGoogle"><asp:HyperLink runat="server" ID="hyperGoogle" Target="new"><i class="fa fa-google-plus"></i></asp:HyperLink></li>
+                                            <li runat="server" id="liYoutube"><asp:HyperLink runat="server" ID="hyperYoutube" Target="new"><i class="fa fa-youtube"></i></asp:HyperLink></li>
+                                        </ul>
+                                    </div>
+                                    <!-- End Footer Social link -->
+
+                                    <%-- Powerd By Start --%>
+                                    <a class="nav-link" href="https://www.op.ac.nz/" target="_blank" style="color:#000e2b">
+                                        <span>Powered By </span>
+                                            <i class="fa fa-copyright">
+                                     </i> <span>Otago Polytechnic</span></a>
+                                    
+                                    <%-- Powerd By End --%>
+                                </div>
+                            </div>
+
+
+
+                    <!-- Start Footer widget -->
+                    <div class="col-lg-4 col-md-12 col-sm-4 contact-box" style="font-family:'Aclonica', sans-serif;">
+                        <h4 style="color:#000e2b">
+                            <i class="fa fa-phone-square" style="color:#000e2b">
+                                                 </i> <span>Contact Us</span></h4>
+                        <p><i class="fa fa-home" style="color:#000e2b"></i>
+                            <label runat="server" id="lblContAddress" ></label>
+                        </p>
+                        <p><i class="fa fa-phone" style="color:#000e2b"></i>
+                            <label runat="server" id="lblContPhone"></label>
+                        </p>
+                        <p><i class="fa fa-envelope-o" style="color:#000e2b"></i>
+                            <asp:HyperLink runat="server" id="linkContEmailId" Text="" > </asp:HyperLink>
+                        </p>
+                    </div>
+                    <!-- End Footer widget -->
+                </div>
+            </div>
+         </footer>
+    </section>
+    <!-- End Footer Section -->
+
+
+    <!-- End Site Wrapper -->
+
+    
+    <!-- Load Scripts -->
+    <!-- jquery -->
+    <script src="assets/libs/jquery/jquery-2.2.4.min.js"></script>
+    <!-- jquery UI -->
+    <script src="assets/libs/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Respond -->
+    <script src="assets/libs/respond/respond.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap Timepicker js -->
+    <script src="assets/libs/bootstrap-timepicker/js/bootstrap-timepicker.min.js"></script>
+    <!-- jquery Nice Select js -->
+    <script src="assets/libs/jquery-nice-select/jquery.nice-select.min.js"></script>
+    <!-- owlcarousel js -->
+    <script src="assets/libs/owl.carousel/owl.carousel.min.js"></script>
+    <!-- wow js -->
+    <script src="assets/libs/wow/wow.min.js"></script>
+    <!--internal js-->
+    <script src="assets/js/internal.js"></script>
+
+    <!-- Switch Style js -->
+    <script src="assets/switch-style/switch-style.js"></script>
+
+</body>
+</html>
